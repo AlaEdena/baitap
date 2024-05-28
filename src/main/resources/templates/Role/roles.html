@@ -1,0 +1,34 @@
+<!-- roles.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Roles</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Roles</h1>
+    <a href="/roles/create" class="btn btn-primary">Add Role</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="role : ${roles}">
+            <td th:text="${role.role_id}"></td>
+            <td th:text="${role.role_name}"></td>
+            <td>
+                <a th:href="@{/roles/edit/{id}(id=${role.role_id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/roles/delete/{id}(id=${role.role_id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
